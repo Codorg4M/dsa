@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Rating Sorter — Bubble Sort DSA Mini Project</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ================= TOP HEADER ================= -->
+  <header class="header">
+    <div class="header-container">
+      <div class="badge-tag">DSA Mini Project &bull; Data Structures &amp; Algorithms</div>
+      <h1 class="main-title">🎬 Movie Rating Sorter</h1>
+      <p class="subtitle">Interactive Demonstration of the <strong>Bubble Sort Algorithm</strong> in Real-World Data Sorting</p>
+      
+      <!-- Quick Navigation links -->
+      <nav class="nav-links">
+        <a href="#objective">Objective</a>
+        <a href="#theory">Theory</a>
+        
+        <a href="#visualizer">Live Sorter</a>
+        
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+
+    <!-- ================= 1. PROJECT OBJECTIVE ================= -->
+    <section id="objective" class="card-section">
+      <div class="section-header">
+        <span class="section-icon">🎯</span>
+        <h2>1. Project Objective</h2>
+      </div>
+      <div class="content-box">
+        <p>
+          The primary objective of this project is to organize and rank a collection of movies based on their audience rating scores using the fundamental <strong>Bubble Sort</strong> algorithm.
+        </p>
+        <p>
+          In everyday platforms like IMDb, Netflix, and Rotten Tomatoes, users frequently sort titles by highest rating or lowest rating. This project bridges theoretical computer science and practical software design by showing how adjacent comparisons and element swapping work visually to achieve ordered data.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= 2. THEORY SECTION ================= -->
+    <section id="theory" class="card-section">
+      <div class="section-header">
+        <span class="section-icon">📚</span>
+        <h2>2. Theory &amp; Concepts</h2>
+      </div>
+
+      <div class="grid-2col">
+        <!-- What is Sorting -->
+        <div class="info-card">
+          <h3>📌 What is Sorting?</h3>
+          <p>
+            <strong>Sorting</strong> is the systematic process of arranging data elements in a specific order (either ascending or descending). In computer science, sorting improves search efficiency, makes data readable for humans, and optimizes subsequent operations like binary searching.
+          </p>
+        </div>
+
+        <!-- What is Bubble Sort -->
+        <div class="info-card">
+          <h3>🫧 What is Bubble Sort?</h3>
+          <p>
+            <strong>Bubble Sort</strong> is an elementary, comparison-based sorting algorithm. It is called "Bubble Sort" because larger (or smaller) elements gradually "bubble up" to their correct final positions at the end of the collection with each passing iteration, much like air bubbles rising in water.
+          </p>
+        </div>
+      </div>
+
+      <!-- How Bubble Sort Works -->
+      <div class="info-card mt-4">
+        <h3>⚙️ How Bubble Sort Works</h3>
+        <ol class="styled-list">
+          <li>Start at the very beginning of the array (index 0).</li>
+          <li>Compare the current movie rating with the adjacent movie rating right next to it.</li>
+          <li>If the two movies are in the wrong order according to the selected sorting rule (e.g. current &lt; next for descending order), swap their positions.</li>
+          <li>Advance one position to the right and compare the next adjacent pair.</li>
+          <li>Repeat this process across all items. By the end of Pass 1, the largest (or smallest) element is guaranteed to be settled at the end.</li>
+          <li>Execute subsequent passes, each time ignoring the elements that are already settled in previous passes.</li>
+          <li>Stop when no swaps occur during an entire pass, indicating the list is fully sorted.</li>
+        </ol>
+      </div>
+
+
+
+      <!-- Advantages, Limitations, Why Used -->
+      <div class="grid-3col mt-4">
+        <div class="info-card">
+          <h3>✅ Advantages</h3>
+          <ul class="bullet-list">
+            <li>Easy to understand: Bubble Sort is simple to learn and implement, which makes it suitable for beginners.</li>
+            <li>Uses very little memory: It sorts the data in the same array without requiring extra memory, so its space complexity is O(1).</li>
+            <li><strong>Stable Sorting:</strong> If two movies have the same rating, their original order is maintained.</li>
+            <li>Can detect sorted data quickly: With an optimized Bubble Sort using a swapped flag, the algorithm can finish in O(n) when the list is already sorted.</li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <h3>⚠️ Limitations</h3>
+          <ul class="bullet-list">
+            <li>Not suitable for large datasets: Bubble Sort becomes slow as the number of movies increases because it can take O(n²) time.</li>
+            <li>Slower than advanced sorting algorithms: Algorithms such as Quick Sort and Merge Sort generally perform better for large datasets, with an average time complexity of O(n log n).</li>
+            <li>More swaps: Bubble Sort may perform many swaps while sorting, which can make it less efficient than algorithms such as Selection Sort.</li>
+          </ul>
+        </div>
+
+        
+      </div>
+
+      <!-- Small Concrete Example -->
+      <div class="info-card mt-4 example-box">
+        <h3>🎬 Step-by-Step Example (Descending Order)</h3>
+        <p>Consider three movies with ratings:</p>
+        <div class="example-flex">
+          <div class="example-card">
+            <h4>Initial State (Unsorted):</h4>
+            <div class="code-pill">Movie A: 7.5</div>
+            <div class="code-pill">Movie B: 9.0</div>
+            <div class="code-pill">Movie C: 8.0</div>
+          </div>
+          <div class="example-arrow">➡️</div>
+          <div class="example-card">
+            <h4>Pass 1 Operations:</h4>
+            <small>Compare A (7.5) &amp; B (9.0) &rarr; 7.5 &lt; 9.0 &rarr; <strong>Swap!</strong> [B, A, C]</small><br>
+            <small>Compare A (7.5) &amp; C (8.0) &rarr; 7.5 &lt; 8.0 &rarr; <strong>Swap!</strong> [B, C, A]</small>
+          </div>
+          <div class="example-arrow">➡️</div>
+          <div class="example-card final-card">
+            <h4>Final State (Sorted):</h4>
+            <div class="code-pill pill-gold">1. Movie B: 9.0</div>
+            <div class="code-pill pill-gold">2. Movie C: 8.0</div>
+            <div class="code-pill pill-gold">3. Movie A: 7.5</div>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+   
+
+    <!-- ================= 4. LIVE VISUALIZER & SORTER ================= -->
+    <section id="visualizer" class="card-section highlight-section">
+      <div class="section-header">
+        <span class="section-icon">💻</span>
+        <h2>3. Live Interactive Movie Sorter</h2>
+      </div>
+
+      <!-- Add Movie Form -->
+      <div class="add-movie-panel">
+        <div class="panel-title">➕ Add New Movie to the List</div>
+        <form id="add-movie-form" class="movie-form" onsubmit="event.preventDefault(); handleAddMovie();">
+          <div class="form-group">
+            <label for="movie-name">Movie Name</label>
+            <input type="text" id="movie-name" placeholder="e.g. Oppenheimer" required autocomplete="off">
+          </div>
+          <div class="form-group">
+            <label for="movie-rating">Rating (0.0 to 10.0)</label>
+            <input type="number" id="movie-rating" placeholder="e.g. 8.9" step="0.1" min="0" max="10" required>
+          </div>
+          <button type="submit" id="btn-add" class="btn btn-primary">Add Movie</button>
+        </form>
+      </div>
+
+      <!-- Sorting Controls Panel -->
+      <div class="controls-panel">
+        <div class="btn-group">
+          <button id="btn-sort-desc" class="btn btn-action" onclick="startBubbleSort(false)">
+            ⬇️ Sort Highest &rarr; Lowest (Descending)
+          </button>
+          <button id="btn-sort-asc" class="btn btn-action" onclick="startBubbleSort(true)">
+            ⬆️ Sort Lowest &rarr; Highest (Ascending)
+          </button>
+          <button id="btn-reset" class="btn btn-secondary" onclick="resetMovieList()">
+            🔄 Reset Sample Data
+          </button>
+        </div>
+
+        <!-- Animation Speed Controller -->
+        <div class="speed-control">
+          <label for="speed-range">Animation Speed:</label>
+          <input type="range" id="speed-range" min="150" max="1500" value="600" step="50">
+          <span id="speed-label">Normal (600ms)</span>
+        </div>
+      </div>
+
+      <!-- Live Statistics & Status Tracker -->
+      <div class="stats-panel">
+        <div class="stat-box">
+          <span class="stat-title">Current Pass</span>
+          <span id="stat-pass" class="stat-value">0</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-title">Comparisons</span>
+          <span id="stat-comparisons" class="stat-value">0</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-title">Swaps Made</span>
+          <span id="stat-swaps" class="stat-value">0</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-title">Total Movies</span>
+          <span id="stat-total" class="stat-value">8</span>
+        </div>
+      </div>
+
+      <!-- Live Status Message Box -->
+      <div class="status-box" id="status-message">
+        Ready to sort! Choose a sort order above to watch Bubble Sort in action.
+      </div>
+
+      <!-- Legend for Visual Colors -->
+      <div class="legend-bar">
+        <span class="legend-item"><span class="legend-color legend-default"></span> Unsorted</span>
+        <span class="legend-item"><span class="legend-color legend-comparing"></span> Comparing Adjacent</span>
+        <span class="legend-item"><span class="legend-color legend-swapping"></span> Swapping</span>
+        <span class="legend-item"><span class="legend-color legend-sorted"></span> Settled / Sorted</span>
+      </div>
+
+      <!-- Movie Cards Grid Container -->
+      <div id="movie-container" class="movie-grid">
+        <!-- Rendered dynamically by script.js -->
+      </div>
+    </section>
+
+   
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p><strong>Movie Rating Sorter — Bubble Sort Demonstration</strong></p>
+    
+      <p class="footer-note">Pure HTML5, CSS3, &amp; Vanilla JavaScript &bull;</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
